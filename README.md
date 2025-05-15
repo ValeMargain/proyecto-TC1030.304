@@ -21,7 +21,8 @@ El programa permite realizar las siguientes acciones:
 * Calcular cuántos días le quedan a una membresía. 
 * Validar si una membresía está activa. 
 * Mostrar rutinas con todos los ejercicios correspondientes.
- Limitaciones: 
+
+Limitaciones: 
 * No tiene almacenamiento persistente: Los datos de usuarios, entrenadores, rutinas y membresía solo existen mientras el programa está en ejecución. Al cerrarlo, toda la información se pierde. 
 * Interfaz por consola: No cuenta con una interfaz gráfica. 
 * Validación básica de datos: No hay validación avanzada de estructuras como el correo o  numero telefónico. 
