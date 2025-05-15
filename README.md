@@ -9,7 +9,6 @@ Para ello, se han definido cuatro clases principales y una clase base que repres
 * Membresía: Clase que contiene la información relacionada con el acceso del usuario al gimnasio: tipo de membresía, duración, precio y fecha de inicio. Incluye métodos para validar su vigencia y renovarla. 
 * Rutina: Representa un conjunto de ejercicios personalizados asignados a un usuario. Contiene una lista de ejercicios que pueden ser modificados. 
 
-Funcionalidad:
 El programa permite realizar las siguientes acciones:
 * Registrar un usuario, ingresando sus datos personales. 
 * Registrar un entrenador, ingresando su especialidad y datos generales. 
