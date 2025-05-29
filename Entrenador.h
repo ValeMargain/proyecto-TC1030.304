@@ -3,7 +3,7 @@
 
 #include <string>
 #include "Persona.h"
-#include "Rutina.h"  // Incluimos Rutina para poder usarla
+#include "Rutina.h"
 
 class Entrenador : public Persona {
 private:
@@ -11,65 +11,50 @@ private:
     Rutina rutinaAsignada;
 
 public:
-
     Entrenador();
-    Entrenador(const std::string& nombre,
-               const std::string& apepat,
-               const std::string& apemat,
-               const std::string& telefono,
-               const std::string& correo,
-               const std::string& fecnac,
-               const std::string& especialidad);
+    Entrenador(std::string nombre, std::string apepat, std::string apemat,
+               std::string telefono, std::string correo, std::string fecnac,
+               std::string especialidad);
 
-    std::string getEspecialidad() const;
-    void setEspecialidad(const std::string& esp);
+    std::string getEspecialidad();
+    void setEspecialidad(std::string esp);
 
+    void asignarRutina(Rutina rutina);
+    Rutina getRutina();
 
-    void asignarRutina(const Rutina& rutina);
-    Rutina getRutina() const;
-
-    void mostrarInfo() override {
-    Persona::mostrarInfo();
-    std::cout << "Especialidad: " << especialidad << std::endl;
-}
-
+    void mostrarInfo();
 };
 
+// Implementación
 
 Entrenador::Entrenador()
     : Persona(), especialidad(""), rutinaAsignada() {}
 
-
-Entrenador::Entrenador(const std::string& nombre,
-                       const std::string& apepat,
-                       const std::string& apemat,
-                       const std::string& telefono,
-                       const std::string& correo,
-                       const std::string& fecnac,
-                       const std::string& especialidad)
+Entrenador::Entrenador(std::string nombre, std::string apepat, std::string apemat,
+                       std::string telefono, std::string correo, std::string fecnac,
+                       std::string especialidad)
     : Persona(nombre, apepat, apemat, telefono, correo, fecnac),
       especialidad(especialidad), rutinaAsignada() {}
 
-// Getter para especialidad
-std::string Entrenador::getEspecialidad() const {
+std::string Entrenador::getEspecialidad() {
     return especialidad;
 }
 
-// Setter para especialidad
-void Entrenador::setEspecialidad(const std::string& esp) {
+void Entrenador::setEspecialidad(std::string esp) {
     especialidad = esp;
 }
 
-// Asignar rutina
-void Entrenador::asignarRutina(const Rutina& rutina) {
+void Entrenador::asignarRutina(Rutina rutina) {
     rutinaAsignada = rutina;
 }
 
-// Obtener rutina asignada
-Rutina Entrenador::getRutina() const {
+Rutina Entrenador::getRutina() {
     return rutinaAsignada;
 }
 
-
+void Entrenador::mostrarInfo() {
+    Persona::mostrarInfo();
+    std::cout << "Especialidad: " << especialidad << std::endl;
+}
 
 #endif
