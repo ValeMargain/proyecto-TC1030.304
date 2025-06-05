@@ -1,6 +1,7 @@
 #ifndef USUARIO_H
 #define USUARIO_H
 
+
 #include <iostream>
 #include <string>
 #include "Persona.h"
@@ -18,59 +19,77 @@ private:
 
 
 public:
-   
-    Usuario(string nombre, string apepat, string apemat, string telefono, string correo, string fecnac,
-            Persona* coach, Membresia* membresia, Rutina* rutina)
-        : Persona(nombre, apepat, apemat, telefono, correo, fecnac),
-          coach(coach), membresia(membresia), rutina(rutina) {}
+    Usuario ();
+     Usuario(std::string nombre, std::string apepat, std::string apemat,
+            std::string telefono, std::string correo, std::string fecnac,
+            Persona* coach, Membresia* mem, Rutina* rut);
 
-
-    void mostrarInfo()  {
-        Persona::mostrarInfo();
-
-        cout << "\nEntrenador:\n";
-        if (coach)
-            coach->mostrarInfo();
-        else
-            cout << "No tiene entrenador asignado.\n";
-
-        cout << "\nMembresia:\n";
-        if (membresia)
-            membresia->mostrarInfo();
-        else
-            cout << "No tiene membresía asignada.\n";
-
-        cout << "\nRutina:\n";
-        if (rutina)
-            rutina->mostrarEjercicios();
-        else
-            cout << "No tiene rutina asignada.\n";
-    }
+    void mostrarInfo();
 
     // Getters y setters si se requieren
-    void setCoach(Persona* entrenador) {
-        coach = entrenador;
-    }
+    void setCoach(Persona* entrenador);
+    void setMembresia(Membresia* mem);
+    void setRutina(Rutina* rut);
 
-    void setMembresia(Membresia* mem) {
-        membresia = mem;
-    }
-
-    void setRutina(Rutina* rut) {
-        rutina = rut;
-    }
-
-    Persona* getCoach() {
-        return coach;
-    }
-
-    Membresia* getMembresia() {
-        return membresia;
-    }
-
-    Rutina* getRutina() {
-        return rutina;
-    }
+    Persona* getCoach() const;
+    Membresia* getMembresia() const;
+    Rutina* getRutina() const;
 };
 
+
+Usuario::Usuario() : Persona("", "", "", "", "", ""), coach(nullptr), membresia(nullptr), rutina(nullptr) {}
+
+Usuario::Usuario(std::string nombre, std::string apepat, std::string apemat,
+                 std::string telefono, std::string correo, std::string fecnac,
+                 Persona* coach, Membresia* mem, Rutina* rut)
+    : Persona(nombre, apepat, apemat, telefono, correo, fecnac),
+      coach(coach), membresia(mem), rutina(rut) {}
+
+void Usuario::mostrarInfo() {
+    std::cout << "Nombre: " << nombre << " " << apepat << " " << apemat << std::endl;
+    std::cout << "Teléfono: " << telefono << ", Correo: " << correo << std::endl;
+    std::cout << "Fecha de nacimiento: " << fecnac << std::endl;
+
+    std::cout << "\nEntrenador:\n";
+    if (coach)
+        coach->mostrarInfo();
+    else
+        std::cout << "No tiene entrenador asignado.\n";
+
+    std::cout << "\nMembresía:\n";
+    if (membresia)
+        membresia->mostrarInfo();
+    else
+        std::cout << "No tiene membresía asignada.\n";
+
+    std::cout << "\nRutina:\n";
+    if (rutina)
+        rutina->mostrarEjercicios();
+    else
+        std::cout << "No tiene rutina asignada.\n";
+}
+
+void Usuario::setCoach(Persona* entrenador) {
+    coach = entrenador;
+}
+
+void Usuario::setMembresia(Membresia* mem) {
+    membresia = mem;
+}
+
+void Usuario::setRutina(Rutina* rut) {
+    rutina = rut;
+}
+
+Persona* Usuario::getCoach() const {
+    return coach;
+}
+
+Membresia* Usuario::getMembresia() const {
+    return membresia;
+}
+
+Rutina* Usuario::getRutina() const {
+    return rutina;
+}
 #endif

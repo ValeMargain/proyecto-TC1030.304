@@ -16,11 +16,11 @@ public:
                std::string telefono, std::string correo, std::string fecnac,
                std::string especialidad);
 
-    std::string getEspecialidad();
+    std::string getEspecialidad() const;
     void setEspecialidad(std::string esp);
 
     void asignarRutina(Rutina rutina);
-    Rutina getRutina();
+    Rutina getRutina() const;
 
     void mostrarInfo();
 };
@@ -36,7 +36,7 @@ Entrenador::Entrenador(std::string nombre, std::string apepat, std::string apema
     : Persona(nombre, apepat, apemat, telefono, correo, fecnac),
       especialidad(especialidad), rutinaAsignada() {}
 
-std::string Entrenador::getEspecialidad() {
+std::string Entrenador::getEspecialidad() const{
     return especialidad;
 }
 
@@ -48,12 +48,14 @@ void Entrenador::asignarRutina(Rutina rutina) {
     rutinaAsignada = rutina;
 }
 
-Rutina Entrenador::getRutina() {
+Rutina Entrenador::getRutina() const{
     return rutinaAsignada;
 }
 
 void Entrenador::mostrarInfo() {
-    Persona::mostrarInfo();
+    std::cout << "Nombre: " << nombre << " " << apepat << " " << apemat << std::endl;
+    std::cout << "Teléfono: " << telefono << ", Correo: " << correo << std::endl;
+    std::cout << "Fecha de nacimiento: " << fecnac << std::endl;
     std::cout << "Especialidad: " << especialidad << std::endl;
 }
 

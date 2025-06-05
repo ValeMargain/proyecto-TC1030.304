@@ -39,12 +39,9 @@ public:
     void mostrarInfo();
 };
 
-Membresia::Membresia() {
-   
-    nombre = "";
-    duracionDias = 0;
-    precio = 0.0;
-}
+Membresia::Membresia()
+    : nombre(""), duracionDias(0), precio(0.0) {}
+
 
 Membresia::Membresia(string nom, int duracion, double precio)
     : nombre(nom), duracionDias(duracion), precio(precio) {

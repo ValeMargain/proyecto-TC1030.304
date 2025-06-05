@@ -15,26 +15,19 @@ public:
     Rutina();
     Rutina(std::string& nombre);
 
-    // Métodos para manipular ejercicios
-    // En la clase
     void agregarEjercicio(std::string ejercicio);
     void eliminarEjercicio(std::string& ejercicio);
-    void mostrarEjercicios() ;
+    void mostrarEjercicios() const;
 
     // Getters y setters
-    std::string getNombre() ;
+    std::string getNombre() const;
     void setNombre( std::string& nuevoNombre);
 };
 
+Rutina::Rutina() : nombre("Rutina sin nombre"), numEjercicios(0) {}
 
-
-// Implementación de constructores y métodos inline para claridad 
-
-inline Rutina::Rutina() : nombre("Rutina sin nombre"), numEjercicios(0) {}
-
-inline Rutina::Rutina( std::string& nombre) : nombre(nombre), numEjercicios(0) {}
-
-inline void Rutina::agregarEjercicio(std::string ejercicio) {
+Rutina::Rutina( std::string& nombre) : nombre(nombre), numEjercicios(0) {}
+ void Rutina::agregarEjercicio(std::string ejercicio) {
     if (numEjercicios < 50) {
         ejercicios[numEjercicios++] = ejercicio;
     } else {
@@ -43,7 +36,7 @@ inline void Rutina::agregarEjercicio(std::string ejercicio) {
 }
 
 
-inline void Rutina::eliminarEjercicio( std::string& ejercicio) {
+void Rutina::eliminarEjercicio( std::string& ejercicio) {
     bool encontrado = false;
     for (int i = 0; i < numEjercicios; ++i) {
         if (ejercicios[i] == ejercicio) {
@@ -52,7 +45,9 @@ inline void Rutina::eliminarEjercicio( std::string& ejercicio) {
             }
             --numEjercicios;
             encontrado = true;
+            if ( encontrado = true){
             std::cout << "Ejercicio eliminado: " << ejercicio << std::endl;
+            }
             break;
         }
     }
@@ -61,7 +56,7 @@ inline void Rutina::eliminarEjercicio( std::string& ejercicio) {
     }
 }
 
-inline void Rutina::mostrarEjercicios()  {
+void Rutina::mostrarEjercicios() const{
     std::cout << "Rutina: " << nombre << std::endl;
     if (numEjercicios == 0) {
         std::cout << "No hay ejercicios en esta rutina." << std::endl;
@@ -72,11 +67,11 @@ inline void Rutina::mostrarEjercicios()  {
     }
 }
 
-inline std::string Rutina::getNombre()  {
+std::string Rutina::getNombre() const {
     return nombre;
 }
 
-inline void Rutina::setNombre( std::string& nuevoNombre) {
+void Rutina::setNombre( std::string& nuevoNombre) {
     nombre = nuevoNombre;
 }
 

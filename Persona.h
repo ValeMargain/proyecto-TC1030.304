@@ -3,6 +3,8 @@
 
 #include <string>
 #include <iostream>
+#include <string>
+#include <cctype>
 
 class Persona {
 protected:
@@ -21,7 +23,24 @@ public:
     Persona(std::string nombre, std::string apepat, std::string apemat,
             std::string telefono, std::string correo, std::string fecnac);
 
-    virtual void mostrarInfo();
+    // Setters
+    void setNombre(std::string nombre);
+    void setApePat(std::string apepat);
+    void setApeMat(std::string apemat);
+    void setTelefono(std::string telefono);
+    void setCorreo(std::string correo);
+    void setFecNac(std::string fecnac);
+
+    // Getters
+    std::string getNombre() const;
+    std::string getApePat() const;
+    std::string getApeMat() const;
+    std::string getTelefono() const;
+    std::string getCorreo() const;
+    std::string getFecNac() const;
+
+    virtual void mostrarInfo() = 0;
+
 };
 
 // Constructor por defecto
@@ -33,11 +52,98 @@ Persona::Persona(std::string nombre, std::string apepat, std::string apemat,
                 std::string telefono, std::string correo, std::string fecnac)
     : nombre(nombre), apepat(apepat), apemat(apemat), telefono(telefono), correo(correo), fecnac(fecnac) {}
 
-
-void Persona::mostrarInfo() {
-    std::cout << "Nombre: " << nombre << " " << apepat << " " << apemat << std::endl;
-    std::cout << "Teléfono: " << telefono << ", Correo: " << correo << std::endl;
-    std::cout << "Fecha de nacimiento: " << fecnac << std::endl;
+//Setters
+void Persona::setNombre(std::string nombre) {
+    if (nombre.empty()) {
+        std::cerr << "Nombre inválido. No puede estar vacío.\n";
+        return;
+    }
+    bool valido = true;
+    for (size_t i = 0; i < nombre.size(); ++i) {
+        char c = nombre[i];
+        if (!isalpha(c) && c != ' ') {
+            valido = false;
+            break;
+        }
+    }
+    if (valido) {
+        this->nombre = nombre;
+    } else {
+        std::cerr << "Nombre inválido. Solo letras y espacios.\n";
+    }
 }
+
+void Persona::setApePat(std::string apepat) {
+    if (apepat.empty()) {
+        std::cerr << "Apellido paterno inválido. No puede estar vacío.\n";
+        return;
+    }
+    bool valido = true;
+    for (size_t i = 0; i < apepat.size(); ++i) {
+        char c = apepat[i];
+        if (!isalpha(c) && c != ' ') {
+            valido = false;
+            break;
+        }
+    }
+    if (valido) {
+        this->apepat = apepat;
+    } else {
+        std::cerr << "Apellido paterno inválido. Solo letras y espacios.\n";
+    }
+}
+
+void Persona::setApeMat(std::string apemat) {
+    if (apemat.empty()) {
+        std::cerr << "Apellido materno inválido. No puede estar vacío.\n";
+        return;
+    }
+    bool valido = true;
+    for (size_t i = 0; i < apemat.size(); ++i) {
+        char c = apemat[i];
+        if (!isalpha(c) && c != ' ') {
+            valido = false;
+            break;
+        }
+    }
+    if (valido) {
+        this->apemat = apemat;
+    } else {
+        std::cerr << "Apellido materno inválido. Solo letras y espacios.\n";
+    }
+}
+
+
+void Persona::setTelefono(std::string telefono) {
+    this->telefono = telefono;
+}
+void Persona::setCorreo(std::string correo) {
+    this->correo = correo;
+}
+void Persona::setFecNac(std::string fecnac) {
+    this->fecnac = fecnac;
+}
+
+// Getters
+std::string Persona::getNombre() const {
+    return nombre;
+}
+std::string Persona::getApePat() const {
+    return apepat;
+}
+std::string Persona::getApeMat() const {
+    return apemat;
+}
+std::string Persona::getTelefono() const {
+    return telefono;
+}
+std::string Persona::getCorreo() const {
+    return correo;
+}
+std::string Persona::getFecNac() const {
+    return fecnac;
+}
+
+
 
 #endif
