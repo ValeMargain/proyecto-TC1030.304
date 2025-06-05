@@ -40,6 +40,7 @@ Validaciones y restricciones
 * No hay persistencia de datos: al cerrar el programa, se pierde la información.
 
 Diagrama UML: 
-![gimmnasioUML](https://github.com/user-attachments/assets/377afe9a-26c7-4bf3-ab8d-397ba10d80fd)
+
+![gimmnasioUML (1)](https://github.com/user-attachments/assets/0a0b813e-b5dc-47b9-a9d7-d030f40ff26e)
 
 Consideraciones El programa está diseñado para correr en cualquier sistema operativo que soporte C++ estándar. Tutorial para compilar el programa en Windows: TylerMSFT. (2023, 12 de octubre). Tutorial: Compilar un programa nativo de C++ en la línea de comandos. Microsoft aprende. https://learn.microsoft.com/es-es/cpp/build/walkthrough-compiling-a-native-cpp-program-on-the-command-line?view=msvc-170
