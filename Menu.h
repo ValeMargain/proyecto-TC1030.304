@@ -47,7 +47,26 @@ public:
 };
 
 
-Menu::Menu() : totalEntrenadores(0), totalMembresias(0), totalRutinas(0), totalUsuarios(0) {}
+Menu::Menu() : totalEntrenadores(0), totalMembresias(0), totalRutinas(0), totalUsuarios(0) {
+    // Crear entrenador por defecto
+    entrenadores[totalEntrenadores++] = new Entrenador(
+        "Carlos", "Lopez", "Ramirez", "5551234567",
+        "carlos.lopez@gym.com", "1980-01-01", "Fuerza"
+    );
+
+    // Crear membresía por defecto
+    membresias[totalMembresias++] = new Membresia(
+        "Básica", 30, 499.99
+    );
+
+    // Crear rutina por defecto
+    Rutina* rutina = new Rutina("Rutina Inicial");
+    rutina->agregarEjercicio("Flexiones");
+    rutina->agregarEjercicio("Sentadillas");
+    rutina->agregarEjercicio("Abdominales");
+    rutinas[totalRutinas++] = rutina;
+}
+
 
 void Menu::mostrarEntrenadores() {
     if (totalEntrenadores == 0) {
@@ -291,15 +310,17 @@ void Menu::eliminarEjercicioRutina() {
 void Menu::mostrarMenuPrincipal() {
     cout << "\n=== MENÚ PRINCIPAL ===\n";
     cout << "1. Crear entrenador\n";
-    cout << "2. Crear membresía\n";
+    cout << "2. Crear membresia\n";
     cout << "3. Crear rutina\n";
-    cout << "4. Renovar membresía\n";
+    cout << "4. Renovar membresia\n";
     cout << "5. Crear usuario\n";
     cout << "6. Mostrar usuarios\n";
     cout << "7. Eliminar ejercicio de rutina\n";
+    cout << "8. Mostrar entrenadores\n"; // <- NUEVA LÍNEA
     cout << "0. Salir\n";
-    cout << "Elige una opción: ";
+    cout << "Elige una opcion: ";
 }
+
 
 int Menu::pedirOpcion() {
     int opcion;
@@ -330,6 +351,9 @@ void Menu::ejecutarOpcion(int opcion) {
         break;
     case 7:
         eliminarEjercicioRutina();
+        break;
+    case 8:
+        mostrarEntrenadores(); // <- NUEVO CASE
         break;
     case 0:
         cout << "Saliendo del programa. ¡Hasta luego!\n";

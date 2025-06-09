@@ -54,7 +54,7 @@ Rutina Entrenador::getRutina() const{
 
 void Entrenador::mostrarInfo() {
     std::cout << "Nombre: " << nombre << " " << apepat << " " << apemat << std::endl;
-    std::cout << "Teléfono: " << telefono << ", Correo: " << correo << std::endl;
+    std::cout << "Telefono: " << telefono << ", Correo: " << correo << std::endl;
     std::cout << "Fecha de nacimiento: " << fecnac << std::endl;
     std::cout << "Especialidad: " << especialidad << std::endl;
 }

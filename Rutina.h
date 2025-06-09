@@ -13,7 +13,7 @@ private:
 public:
     // Constructores
     Rutina();
-    Rutina(std::string& nombre);
+    Rutina(const std::string& nombre);
 
     void agregarEjercicio(std::string ejercicio);
     void eliminarEjercicio(std::string& ejercicio);
@@ -21,17 +21,17 @@ public:
 
     // Getters y setters
     std::string getNombre() const;
-    void setNombre( std::string& nuevoNombre);
+    void setNombre(std::string& nuevoNombre);
 };
 
 Rutina::Rutina() : nombre("Rutina sin nombre"), numEjercicios(0) {}
 
-Rutina::Rutina( std::string& nombre) : nombre(nombre), numEjercicios(0) {}
+Rutina::Rutina(const std::string& nombre) : nombre(nombre), numEjercicios(0) {}
  void Rutina::agregarEjercicio(std::string ejercicio) {
     if (numEjercicios < 50) {
         ejercicios[numEjercicios++] = ejercicio;
     } else {
-        std::cout << "No se pueden agregar más ejercicios. Límite alcanzado." << std::endl;
+        std::cout << "No se pueden agregar mas ejercicios. Limite alcanzado." << std::endl;
     }
 }
 
@@ -45,7 +45,7 @@ void Rutina::eliminarEjercicio( std::string& ejercicio) {
             }
             --numEjercicios;
             encontrado = true;
-            if ( encontrado = true){
+            if ( encontrado == true){
             std::cout << "Ejercicio eliminado: " << ejercicio << std::endl;
             }
             break;

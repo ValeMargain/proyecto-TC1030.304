@@ -47,7 +47,7 @@ Usuario::Usuario(std::string nombre, std::string apepat, std::string apemat,
 
 void Usuario::mostrarInfo() {
     std::cout << "Nombre: " << nombre << " " << apepat << " " << apemat << std::endl;
-    std::cout << "Teléfono: " << telefono << ", Correo: " << correo << std::endl;
+    std::cout << "Telefono: " << telefono << ", Correo: " << correo << std::endl;
     std::cout << "Fecha de nacimiento: " << fecnac << std::endl;
 
     std::cout << "\nEntrenador:\n";
@@ -56,11 +56,11 @@ void Usuario::mostrarInfo() {
     else
         std::cout << "No tiene entrenador asignado.\n";
 
-    std::cout << "\nMembresía:\n";
+    std::cout << "\nMembresia:\n";
     if (membresia)
         membresia->mostrarInfo();
     else
-        std::cout << "No tiene membresía asignada.\n";
+        std::cout << "No tiene membresia asignada.\n";
 
     std::cout << "\nRutina:\n";
     if (rutina)

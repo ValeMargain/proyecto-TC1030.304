@@ -89,9 +89,9 @@ int Membresia::diasRestantes() {
 
 
 void Membresia::mostrarInfo() {
-    cout << "Membresía: " << nombre << ", duración: " << duracionDias
-         << " días, precio: $" << precio << endl;
-    cout << "Días restantes: " << diasRestantes() << endl;
-    cout << (esValida() ? "La membresía está activa." : "La membresía ha expirado.") << endl;
+    cout << "Membresia: " << nombre << ", duracion: " << duracionDias
+         << " dias, precio: $" << precio << endl;
+    cout << "Dias restantes: " << diasRestantes() << endl;
+    cout << (esValida() ? "La membresia esta activa." : "La membresia ha expirado.") << endl;
 }
 #endif
