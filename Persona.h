@@ -1,3 +1,13 @@
+/**
+ * Proyecto 
+ * Danna Valeria Rosales Margain
+ * A01669036
+ * 11/06/2025
+ * Clase abstracta que representa a una persona con atributos generales como nombre,
+ * apellidos, teléfono, correo y fecha de nacimiento.
+ *
+ * Sirve como clase base para otras clases como Usuario o Entrenador.
+ */
 #ifndef PERSONA_H
 #define PERSONA_H
 
@@ -39,6 +49,12 @@ public:
     std::string getCorreo() const;
     std::string getFecNac() const;
 
+/**
+ * Método virtual puro que se debe implementar en las clases derivadas para mostrar la información personal.
+ *
+ * @param
+ * @return Método abstracto, no retorna nada.
+ */
     virtual void mostrarInfo() = 0;
 
 };

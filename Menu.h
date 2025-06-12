@@ -1,3 +1,15 @@
+/** * Clase Menu
+ * Danna Valeria Rosales Margain
+ * A01669036
+ * 11/06/2025
+ *
+ * Esta clase implementa el menú principal del sistema de gestión del gimnasio.
+ * Permite la creación, visualización y administración de entrenadores, membresías,
+ * rutinas y usuarios. Además, gestiona la interacción con el usuario mediante
+ * la consola, facilitando la ejecución de distintas operaciones sobre las entidades
+ * del sistema, como crear nuevos registros, renovar membresías, asignar rutinas,
+ * y eliminar ejercicios de rutinas.
+ */ 
 #ifndef MENU_H
 #define MENU_H
 
@@ -12,6 +24,7 @@ using namespace std;
 
 class Menu {
 private:
+//Se crean los objetos
     static const int MAX = 10;
 
     Persona* entrenadores[MAX];
@@ -39,10 +52,16 @@ private:
     void eliminarEjercicioRutina();
 
 public:
+/**
+ * Inicializa la clase Menu con datos predeterminados: un entrenador, una membresía y una rutina.
+ *
+ * @param
+ * @return Constructor que no retorna nada.
+ */
     Menu();
 
     void mostrarMenuPrincipal();
-    int pedirOpcion();
+    //int pedirOpcion();
     void ejecutarOpcion(int opcion);
 };
 
@@ -67,6 +86,12 @@ Menu::Menu() : totalEntrenadores(0), totalMembresias(0), totalRutinas(0), totalU
     rutinas[totalRutinas++] = rutina;
 }
 
+/**
+ * Muestra en consola todos los entrenadores registrados.
+ *
+ * @param
+ * @return Muestra la información de los entrenadores.
+ */
 
 void Menu::mostrarEntrenadores() {
     if (totalEntrenadores == 0) {
@@ -81,6 +106,12 @@ void Menu::mostrarEntrenadores() {
     }
 }
 
+/**
+ * Muestra en consola todas las membresías registradas.
+ *
+ * @param
+ * @return Muestra la información de las membresías.
+ */
 void Menu::mostrarMembresias() {
     if (totalMembresias == 0) {
         cout << "No hay membresías registradas.\n";
@@ -93,6 +124,12 @@ void Menu::mostrarMembresias() {
     }
 }
 
+/**
+ * Muestra en consola todas las rutinas registradas.
+ *
+ * @param
+ * @return Muestra los nombres de las rutinas.
+ */
 void Menu::mostrarRutinas() {
     if (totalRutinas == 0) {
         cout << "No hay rutinas registradas.\n";
@@ -104,6 +141,12 @@ void Menu::mostrarRutinas() {
     }
 }
 
+/**
+ * Muestra en consola todos los usuarios registrados.
+ *
+ * @param
+ * @return Muestra la información de los usuarios.
+ */
 void Menu::mostrarUsuarios() {
     if (totalUsuarios == 0) {
         cout << "No hay usuarios registrados.\n";
@@ -117,6 +160,12 @@ void Menu::mostrarUsuarios() {
     }
 }
 
+/**
+ * Solicita los datos del entrenador al usuario y lo agrega al sistema.
+ *
+ * @param
+ * @return Agrega un nuevo entrenador si hay espacio disponible.
+ */
 void Menu::crearEntrenador() {
     if (totalEntrenadores >= MAX) {
         cout << "No se pueden agregar más entrenadores.\n";
@@ -138,6 +187,12 @@ void Menu::crearEntrenador() {
     cout << "Entrenador creado exitosamente.\n";
 }
 
+/**
+ * Solicita los datos de la membresía al usuario y la agrega al sistema.
+ *
+ * @param
+ * @return Agrega una nueva membresía si hay espacio disponible.
+ */
 void Menu::crearMembresia() {
     if (totalMembresias >= MAX) {
         cout << "No se pueden agregar más membresías.\n";
@@ -157,6 +212,12 @@ void Menu::crearMembresia() {
     cout << "Membresía creada exitosamente.\n";
 }
 
+/**
+ * Solicita los datos de la rutina y sus ejercicios al usuario y la agrega al sistema.
+ *
+ * @param
+ * @return Agrega una nueva rutina si hay espacio disponible.
+ */
 void Menu::crearRutina() {
     if (totalRutinas >= MAX) {
         cout << "No se pueden agregar más rutinas.\n";
@@ -183,6 +244,12 @@ void Menu::crearRutina() {
     cout << "Rutina creada exitosamente.\n";
 }
 
+/**
+ * Permite al usuario renovar una membresía existente, con o sin días extra.
+ *
+ * @param
+ * @return Actualiza la duración de la membresía seleccionada.
+ */
 void Menu::renovarMembresia() {
     if (totalMembresias == 0) {
         cout << "No hay membresías para renovar.\n";
@@ -218,6 +285,12 @@ void Menu::renovarMembresia() {
     cout << "Membresía renovada.\n";
 }
 
+/**
+ * Solicita los datos del usuario y lo relaciona con un entrenador, membresía y rutina.
+ *
+ * @param
+ * @return Agrega un nuevo usuario si se cumplen los requisitos previos.
+ */
 void Menu::crearUsuario() {
     if (totalEntrenadores == 0 || totalMembresias == 0 || totalRutinas == 0) {
         cout << "Debes tener al menos un entrenador, una membresía y una rutina antes de crear un usuario.\n";
@@ -281,6 +354,12 @@ void Menu::crearUsuario() {
     cout << "Usuario creado exitosamente.\n";
 }
 
+/**
+ * Solicita al usuario el nombre de un ejercicio y lo elimina de una rutina seleccionada.
+ *
+ * @param
+ * @return Modifica la rutina eliminando el ejercicio indicado, si existe.
+ */
 void Menu::eliminarEjercicioRutina() {
     if (totalRutinas == 0) {
         cout << "No hay rutinas disponibles.\n";
@@ -307,6 +386,12 @@ void Menu::eliminarEjercicioRutina() {
     cout << "Ejercicio eliminado si existía.\n";
 }
 
+/**
+ * Imprime en consola las opciones disponibles del menú principal.
+ *
+ * @param
+ * @return Muestra el menú principal al usuario.
+ */
 void Menu::mostrarMenuPrincipal() {
     cout << "\n=== MENÚ PRINCIPAL ===\n";
     cout << "1. Crear entrenador\n";
@@ -321,14 +406,12 @@ void Menu::mostrarMenuPrincipal() {
     cout << "Elige una opcion: ";
 }
 
-
-int Menu::pedirOpcion() {
-    int opcion;
-    cin >> opcion;
-    cin.ignore();
-    return opcion;
-}
-
+/**
+ * Ejecuta la acción correspondiente a la opción ingresada por el usuario.
+ *
+ * @param opcion Valor entero que indica la acción a realizar.
+ * @return Ejecuta la función asociada a la opción seleccionada.
+ */
 void Menu::ejecutarOpcion(int opcion) {
     switch (opcion) {
     case 1:
