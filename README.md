@@ -41,7 +41,8 @@ Validaciones y restricciones
 
 Diagrama UML: 
 
-![Gimmnasio](https://github.com/user-attachments/assets/b4bd02f5-05ab-4069-804e-aa2ce87b2375)
+![Gimmnasio (1)](https://github.com/user-attachments/assets/ad8e9b61-37bb-4fff-bc0e-1010aafad257)
+
 
 
 Consideraciones El programa está diseñado para correr en cualquier sistema operativo que soporte C++ estándar. Tutorial para compilar el programa en Windows: TylerMSFT. (2023, 12 de octubre). Tutorial: Compilar un programa nativo de C++ en la línea de comandos. Microsoft aprende. https://learn.microsoft.com/es-es/cpp/build/walkthrough-compiling-a-native-cpp-program-on-the-command-line?view=msvc-170
